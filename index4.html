@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Us Forever ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 45%,#50102f 0%,#170713 45%,#080309 100%);color:#fff5fb;font-family:Georgia,serif}
+.page{min-height:100vh;width:min(100%,850px);padding:32px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2}
+.kicker{color:#ff9dcc;text-transform:uppercase;letter-spacing:.3em;font:12px Arial,sans-serif;margin:0 0 12px;animation:up 1s both}
+h1{font-size:clamp(3.2rem,9vw,6rem);font-weight:400;line-height:1;margin:0 0 26px;text-shadow:0 0 25px #ff4f9a66;animation:up 1.2s .1s both}
+h1 em{color:#ff65ad}.heart{color:#ff65ad;display:inline-block;animation:beat 1.4s infinite}
+.frame{width:360px;height:300px;min-height:230px;padding:7px;border:1px solid #ff9bcf99;border-radius:22px;background:#ffffff18;box-shadow:0 0 30px #ff319044,0 20px 65px #0008;animation:zoom 1.2s .25s both}
+.frame img{width:80%;height:100%;margin-left:0.5em;:block;object-fit:cover;border-radius:15px}
+.message{margin:22px 0 0;color:#f5d8e8;font-size:clamp(1.1rem,3vw,1.5rem);line-height:1.5;animation:up 1.2s .5s both}
+button{margin-top:22px;padding:11px 20px;border:1px solid #ff8ec580;border-radius:30px;background:#ffffff0b;color:#ffd8eb;cursor:pointer;letter-spacing:.08em}
+#confetti{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:5}
+.piece{position:absolute;top:-22px;left:var(--x);width:var(--w);height:var(--h);background:var(--c);border-radius:2px;animation:fall var(--d) var(--delay) linear forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(900deg);opacity:.1}}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes zoom{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes beat{15%{transform:scale(1.2)}30%,100%{transform:scale(1)}}
+@media(max-height:650px){.frame{height:40vh;min-height:180px}h1{margin-bottom:14px}.message{margin-top:12px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div id="confetti" aria-hidden="true"></div>
+<main class="page">
+  <p class="kicker">And here is our little forever</p>
+  <h1>Us <em>Forever</em> <span class="heart">♥</span></h1>
+  <div class="frame">
+    <!-- Put your final couple photo at photos/final-photo.jpg -->
+    <img src="photos/us.png" alt="Our favourite photo together">
+  </div>
+  <p class="message">No matter where life takes us,<br>this moment will always be part of our story. ❤️</p>
+  <button id="again" type="button">Celebrate again ✨</button>
+</main>
+<script>
+const layer=document.getElementById("confetti");
+const colors=["#ff4f9a","#ffd166","#ffffff","#b88cff","#ff8fab","#8be9fd"];
+function celebrate(){
+  layer.replaceChildren();
+  for(let i=0;i<150;i++){
+    const p=document.createElement("span");
+    p.className="piece";
+    p.style.setProperty("--x",Math.random()*100+"vw");
+    p.style.setProperty("--w",5+Math.random()*7+"px");
+    p.style.setProperty("--h",8+Math.random()*10+"px");
+    p.style.setProperty("--c",colors[Math.floor(Math.random()*colors.length)]);
+    p.style.setProperty("--d",3.5+Math.random()*4+"s");
+    p.style.setProperty("--delay",Math.random()*1.8+"s");
+    p.style.setProperty("--drift",(Math.random()*180-90)+"px");
+    layer.appendChild(p);
+  }
+  setTimeout(()=>layer.replaceChildren(),8500);
+}
+document.getElementById("again").addEventListener("click",celebrate);
+celebrate();
+</script>
+</body>
+</html>

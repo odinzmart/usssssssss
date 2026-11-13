@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09060b">
+<title>If This Is Your Decision</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; color: #f8edf3;
+    background:
+      radial-gradient(ellipse at 50% 25%, rgba(245, 1, 1, 0.966), transparent 48%),
+      linear-gradient(145deg, #750707, #080609 70%);
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .page {
+    min-height: 100vh; width: min(100%, 1050px); margin: auto;
+    padding: 48px 22px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .eyebrow {
+    margin: 0 0 12px; color: #d99aae; font: 11px Arial, sans-serif;
+    letter-spacing: .3em; text-transform: uppercase;
+    animation: rise 1s both;
+  }
+  h1 {
+    margin: 0 0 25px; font-size: clamp(2.4rem, 7vw, 4.7rem);
+    font-weight: 400; line-height: 1.05; color: #f7e7ee;
+    animation: rise 1.1s .12s both;
+  }
+  h1 em { color: #d98ca7; }
+  .image-frame {
+    width: min(490px, 82vw); height: min(48vh, 450px);
+    min-height: 240px; padding: 8px; border-radius: 20px;
+    border: 1px solid rgba(219, 151, 174, .35);
+    background: rgba(255,255,255,.035);
+    box-shadow: 0 18px 65px rgba(0,0,0,.55), 0 0 28px rgba(173,75,111,.12);
+    animation: fadeIn 1.3s .2s both;
+  }
+  .image-frame img {
+    width: 100%; height: 100%; display: block; object-fit: contain;
+    border-radius: 13px;
+  }
+  .letter {
+    width: min(760px, 100%); margin: 28px auto 0;
+    color: #e6d3dc; font-size: clamp(1.08rem, 2.4vw, 1.28rem);
+    line-height: 1.85; white-space: pre-line;
+    animation: rise 1.3s .4s both;
+  }
+  .signature { color: #d99aae; font-style: italic; margin-top: 18px; }
+  .back {
+    margin-top: 28px; padding: 10px 18px; border-radius: 30px;
+    border: 1px solid rgba(219,151,174,.4); background: transparent;
+    color: #e9cbd6; cursor: pointer; font-size: .9rem;
+  }
+  .back:hover { background: rgba(219,151,174,.1); }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @media (max-height: 650px) {
+    .page { padding: 22px 18px; }
+    .image-frame { height: 38vh; min-height: 170px; }
+    .letter { margin-top: 18px; line-height: 1.6; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <p class="eyebrow">One last thing I wanted to say</p>
+  <h1>If this is your <em>decision…</em></h1>
+
+  <div class="image-frame">
+    <!-- Add your crying-boy illustration here using this exact filename. -->
+    <img src="photos/cry.png" alt="A boy quietly crying as the girl walks away">
+  </div>
+
+  <div class="letter">
+    If this is your decision, okay. I may not be ready to accept it, and it may hurt more than I can explain, but I respect that your heart has its own choice.
+
+    I will miss the little things — our conversations, the laughter, the memories, and all those ordinary moments that became special just because you were part of them. I wish things had turned out differently, but I don't want you to stay because you feel guilty, pressured, or sorry for me.
+
+    Thank you for the time we shared and for the memories I will carry with me. I genuinely hope life brings you peace, happiness, and everything you have been wishing for. Take care of yourself.
+
+    <div class="signature">— From someone who will always remember our story.</div>
+  </div>
+
+  <button class="back" type="button" onclick="history.back()">← Go back</button><br>
+
+  <p class="eyebrow">One last time you can thing about past  how we are</p>
+  <h1>click home here to see us forever👀</h1>
+   <a href="index.html"><button class="back" type="button">HOME</button></a>
+</main>
+</body>
+</html>
